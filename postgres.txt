@@ -1,0 +1,32 @@
+1. indexes , types of indexes:
+    Indexes improve query performance by allowing faster access to data. Postgresql offers various types of indexes
+    A) B-tree indexes default index type on postgresql (suitable for equality and range queries)
+    B) Hash Index optimized for equailty comparisions
+    C) GIN Generalized inverted index (efficient for indexing array  , JSONB , and full text search)
+    D) GIST Generalized Search Tree (Support complex data type like geometric shapes
+    E) BRIN Block range Indexes
+    F) SP-GIST
+    G) PARTIAL index
+    H) UNIQUE INDEX
+
+2. pg_stat_statements
+   A) enable the extension by this sql (CREATE EXTENSION pg_stat_statements);
+   B) shared_preload_libraries= 'pg_stat_statements';
+   C) SELECT pg_reload_conf();
+   D) For viewing top quereis (
+   SELECT
+       query,
+       calls,
+       total_time,
+       rows
+   FROM
+       pg_stat_statements
+   ORDER BY
+       total_time DESC
+   LIMIT 10;
+
+   )
+
+
+3. Hash partitioning
+    (Hash partitioning splits table data into multiple partitions based on a hash of a column's values. It is ideal for evenly distributing data that lacks a natural range split.)
