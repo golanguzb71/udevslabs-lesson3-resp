@@ -1,0 +1,4 @@
+1. git checkout extraBranch
+2. git add . / git commit -m 'several_changes_commited'
+3. git merge extraBranch
+4. git log extraBranch  / git cherry-pick {hash log} / git revert {hash log} / git reset --hard {hash log}
